@@ -8,7 +8,7 @@ import page.LoginPage;
 
 public class ValidLogin extends BaseTest {
 	@Test
-	public void testValidLogin()
+	public void testValidLogin() throws Exception
 	{
 		String loginPageTitle=Excel.getData(XL_PATH, "ValidLogin", 1, 0);
 		String un=Excel.getData(XL_PATH, "ValidLogin", 1, 1);
@@ -19,6 +19,7 @@ public class ValidLogin extends BaseTest {
 		l.setUsername(un);
 		l.setPassword(pw);
 		l.clickLoginBTN();
+		Thread.sleep(1000);
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
@@ -26,6 +27,7 @@ public class ValidLogin extends BaseTest {
 			e.printStackTrace();
 		}
 		l.verifyIsPageDisplayed(driver, homePageTitle);
+		
 	}
 
 }
